@@ -1,4 +1,5 @@
-var express     = require("express"),
+var http = require("http");
+    express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
@@ -64,6 +65,9 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-app.listen(process.env.PORT, process.env.IP, function(){
+//Port could be created as a variable here.
+const Port = process.env.Port || 3000;
+
+app.listen(Port, process.env.IP, function(){
    console.log("The YelpCamp Server Has Started!");
-});
+});;
